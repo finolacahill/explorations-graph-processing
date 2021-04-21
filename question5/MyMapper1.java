@@ -11,7 +11,7 @@ public class MyMapper1 extends Mapper<Object, Text, Text, Text> {
 		
 		String[] tokens = value.toString().trim().split(",");
 		if (!tokens[0].equals("From")){
-			context.write(new Text(tokens[0] + ';'), new Text(tokens[2]));
+			context.write(new Text(tokens[2] + ';'), new Text(tokens[0]));
 		}
 
 	}
