@@ -17,15 +17,15 @@ public class PeterCushing {
   public static class StringMapper
        extends Mapper<Object, Text, Text, Text>{
 
-    private final static Text word = new Text();
-    private Text actor = new Text("Peter Cushing");
+    private final static Text movie = new Text();
+    private Text actor = new Text("Peter Cushing starred in: ");
 
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
         String[] words = value.toString().split(",");
         if (words[0].equals("Peter Cushing")) {
-		word.set(words[2].trim());
-        	context.write(word, actor);
+		movie.set(words[2].trim());
+        	context.write(actor, movie);
     		}
   	}
 }

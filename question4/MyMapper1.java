@@ -10,8 +10,8 @@ public class MyMapper1 extends Mapper<Object, Text, Text, Text> {
 		 throws IOException, InterruptedException {
 		
 		String[] tokens = value.toString().trim().split(",");
-		if (!tokens[0].equals("From")){
-			context.write(new Text(tokens[0] + ';'), new Text(tokens[2]));
+               if (tokens[0].contains("Kevin Bacon") || tokens[0].equals("John Malkovich") || tokens[0].equals("Audrey Gelfund")){			
+			context.write(new Text(tokens[2] + ';'), new Text(tokens[0]));
 		}
 
 	}

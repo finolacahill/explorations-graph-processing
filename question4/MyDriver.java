@@ -14,6 +14,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class MyDriver {
 public static void main(String[] arg0) throws Exception{
 Configuration conf = new Configuration();
+
 Job job1 = Job.getInstance(conf, "adjacency-list");
 
 job1.setJarByClass(MyDriver.class);

@@ -9,13 +9,9 @@ public class MyMapper2 extends Mapper<Object, Text, Text, Text> {
 	protected void map(Object key, Text value, Context context)
 		 throws IOException, InterruptedException {
 		
-		String[] tokens = value.toString().trim().split(";");
-		String[] movies = tokens[1].trim().split(",");
-		if (tokens[0].contains("Kevin Bacon") || tokens[0].equals("John Malkovich") || tokens[0].equals("Audrey Gelfund")){
-			for (String movie: movies){
-			context.write(new Text(movie), new Text(tokens[0]));
-			}
-		}
+		String[] tokens = value.toString().trim().split(":");
+		context.write(new Text(tokens[0]), new Text(tokens[1]));
+		
 
 	}
 }
